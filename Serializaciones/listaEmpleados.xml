@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEmpleado xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Empleado xsi:type="Desarollador">
+    <Id>2</Id>
+    <Nombre>carloss</Nombre>
+    <Apellido>mendez</Apellido>
+    <Puesto>desarrollador</Puesto>
+    <Salario>1800</Salario>
+    <Edad>29</Edad>
+  </Empleado>
+  <Empleado xsi:type="Desarollador">
+    <Id>3</Id>
+    <Nombre>sofia</Nombre>
+    <Apellido>lopez</Apellido>
+    <Puesto>desarrollador</Puesto>
+    <Salario>1700</Salario>
+    <Edad>27</Edad>
+  </Empleado>
+  <Empleado xsi:type="Desarollador">
+    <Id>4</Id>
+    <Nombre>daniel</Nombre>
+    <Apellido>hernandez</Apellido>
+    <Puesto>desarrollador</Puesto>
+    <Salario>2000</Salario>
+    <Edad>33</Edad>
+  </Empleado>
+  <Empleado xsi:type="Desarollador">
+    <Id>5</Id>
+    <Nombre>laura</Nombre>
+    <Apellido>rodriguez</Apellido>
+    <Puesto>desarrollador</Puesto>
+    <Salario>2200</Salario>
+    <Edad>31</Edad>
+  </Empleado>
+  <Empleado xsi:type="Desarollador">
+    <Id>6</Id>
+    <Nombre>ricardo</Nombre>
+    <Apellido>sanchez</Apellido>
+    <Puesto>desarrollador</Puesto>
+    <Salario>2100</Salario>
+    <Edad>34</Edad>
+  </Empleado>
+  <Empleado xsi:type="Desarollador">
+    <Id>7</Id>
+    <Nombre>juan</Nombre>
+    <Apellido>perez</Apellido>
+    <Puesto>qa</Puesto>
+    <Salario>1500</Salario>
+    <Edad>35</Edad>
+  </Empleado>
+</ArrayOfEmpleado>
