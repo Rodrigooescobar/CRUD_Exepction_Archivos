@@ -17,7 +17,7 @@ namespace DataBase
 		}
 
 		// metodo para interactuar con la bd
-		public List<Empleado> ObtenerEmpleados()
+		public List<Empleado> ObtenerEmpleadoss()
 		{
 			List<Empleado> listaEmpleados = new List<Empleado>();
 			try
@@ -60,65 +60,65 @@ namespace DataBase
 			return listaEmpleados;
 		}
 
-		//public List<Empleado> ObtenerEmpleados()
-		//{
-		//	List<Empleado> listaEmpleados = new List<Empleado>();
+		public List<Empleado> ObtenerEmpleados()
+		{
+			List<Empleado> listaEmpleados = new List<Empleado>();
 
-		//	using (var conexcion = ObtenerConexion())
-		//	{
-		//		conexcion.Open();
+			using (var conexcion = ObtenerConexion())
+			{
+				conexcion.Open();
 
-		//		string query = "select * from empleados";
-		//		MySqlCommand cmd = new MySqlCommand(query, conexcion);
+				string query = "select * from empleados";
+				MySqlCommand cmd = new MySqlCommand(query, conexcion);
 
-		//		MySqlDataReader reader = cmd.ExecuteReader();
+				MySqlDataReader reader = cmd.ExecuteReader();
 
-		//		// obtengo el puesto y despues hago un if
+				// obtengo el puesto y despues hago un if
 
-		//		while (reader.Read())
-		//		{
-		//			Empleado empleado = CrearEmpleadoDesdeReader(reader);
-		//			listaEmpleados.Add(empleado);
-		//		}
-		//	}
-		//	return listaEmpleados;
-		//}
+				while (reader.Read())
+				{
+					Empleado empleado = CrearEmpleadoDesdeReader(reader);
+					listaEmpleados.Add(empleado);
+				}
+			}
+			return listaEmpleados;
+		}
 
-		//private Empleado CrearEmpleadoDesdeReader(MySqlDataReader reader)
-		//{
-		//	string puesto = reader.GetString("puesto").ToLower();
+		private Empleado CrearEmpleadoDesdeReader(MySqlDataReader reader)
+		{
+			string puesto = reader.GetString("puesto").ToLower();
 
-		//	if (puesto == "desarrollador")
-		//	{
-		//		var empleado = new Desarollador
-		//		{
-		//			Id = reader.GetInt32("id"),
-		//			Nombre = reader.GetString("nombre"),
-		//			Apellido = reader.GetString("apellido"),
-		//			Edad = reader.GetInt32("edad"),
-		//			Puesto = puesto,
-		//			Salario = reader.GetFloat("salario"),
-		//			LineasDeCodigo = reader.GetInt32("lineasDeCodigo")
-		//		};
-		//		return empleado;
-		//	}
-		//else if (puesto == "Tester")
-		//{
-		//	return new Tester
-		//	{
-		//		Id = reader.GetInt32("id"),
-		//		Nombre = reader.GetString("nombre"),
-		//		Apellido = reader.GetString("apellido"),
-		//		Edad = reader.GetInt32("edad"),
-		//		Puesto = puesto,
-		//		Salario = reader.GetFloat("salario"),
-		//		BugsEncontrados = reader.GetInt32("bugsEncontrados")
-		//	};
-		//}
+			if (puesto == "desarrollador")
+			{
+				var empleado = new Desarollador
+				{
+					Id = reader.GetInt32("id"),
+					Nombre = reader.GetString("nombre"),
+					Apellido = reader.GetString("apellido"),
+					Edad = reader.GetInt32("edad"),
+					Puesto = puesto,
+					Salario = reader.GetFloat("salario"),
+					//LineasDeCodigo = reader.GetInt32("lineasDeCodigo")
+				};
+				return empleado;
+			}
+			else if (puesto == "qa")
+			{
+				return new Tester
+				{
+					Id = reader.GetInt32("id"),
+					Nombre = reader.GetString("nombre"),
+					Apellido = reader.GetString("apellido"),
+					Edad = reader.GetInt32("edad"),
+					Puesto = puesto,
+					Salario = reader.GetFloat("salario"),
+					//BugsEncontrados = reader.GetInt32("bugsEncontrados")
+				};
+			}
 
-		// Otros tipos de empleados pueden ser manejados aquí
-		//	throw new Exception($"Tipo de empleado desconocido: {puesto}");
-		//}
+			//Otros tipos de empleados pueden ser manejados aquí
+			throw new Exception($"Tipo de empleado desconocido: {puesto}");
+		}
 
 		public bool InsertarEmpleado(Empleado empleado)
 		{

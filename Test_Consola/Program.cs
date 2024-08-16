@@ -21,17 +21,17 @@ namespace Test_Consola
 			//	Salario = 40000,
 			//	LineasDeCodigo = 1500
 			//};
-   //         Console.WriteLine(nuevoDesarrollador);
+			//         Console.WriteLine(nuevoDesarrollador);
 
-            //empleados.Add(d1);
+			//empleados.Add(d1);
 
 			foreach (Empleado empleado in empleados)
 			{
 				Console.WriteLine(empleado.ToString());
-                Console.WriteLine(empleado.Salario);
-            }
+				Console.WriteLine(empleado.Salario);
+			}
 
-            Console.WriteLine("*****************************************");
+			Console.WriteLine("*****************************************");
 
 			Empresa miEmpresa = new Empresa("UTN");
 			DataEmpleado data = new DataEmpleado();
@@ -40,8 +40,14 @@ namespace Test_Consola
 			foreach (Empleado empleado in empleados)
 			{
 				miEmpresa.AgregarEmpleado(empleado);
+				if (empleado.GetType() == typeof(Desarollador))
+				{
+                    Console.WriteLine("Soy desarrollador");
+                    Console.WriteLine(empleado.GetType());
+                }
 				Console.WriteLine(empleado);
 			}
+
 		}
 	}
 }
